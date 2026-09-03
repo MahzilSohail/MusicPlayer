@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Corner Booth — Music Player</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="mobile-topbar">
+  <button class="menu-btn" id="menu-btn" title="Open menu"><span></span></button>
+  <div class="brand">Corner<span> Booth</span></div>
+</div>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<div class="app">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">Corner<br><span>Booth</span>
+      <small>a small player for late tracks</small>
+    </div>
+
+    <div class="nav-group">
+      <h4>Library</h4>
+      <div class="nav-item active" data-view="all">
+        <span>All Tracks</span><span class="count" id="count-all"></span>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <h4>Playlists</h4>
+      <div id="playlist-nav"></div>
+      <div class="new-playlist">
+        <input type="text" id="new-playlist-input" placeholder="New playlist…" maxlength="24">
+        <button id="new-playlist-btn" title="Create playlist">+</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="main-header">
+      <div>
+        <h1 id="view-title">All Tracks</h1>
+        <p id="view-sub">Everything in the booth, sorted your way.</p>
+      </div>
+      <div class="search-wrap">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a8919b" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="search-input" placeholder="Search title or artist…">
+      </div>
+    </div>
+
+    <div class="categories" id="category-chips"></div>
+
+    <div class="track-list">
+      <div class="track-list-head">
+        <span>#</span><span>Track</span><span>Genre</span><span>Time</span><span></span>
+      </div>
+      <div id="track-rows"></div>
+      <div class="empty-state" id="empty-state">
+        <div class="glyph">♪</div>
+        <div>Nothing here yet.</div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="player-bar">
+  <div class="now-playing">
+    <div class="disc" id="disc"></div>
+    <div class="np-meta">
+      <div class="np-title" id="np-title">Nothing playing</div>
+      <div class="np-artist" id="np-artist">Pick a track to start</div>
+    </div>
+  </div>
+
+  <div class="center-controls">
+    <div class="transport">
+      <button id="prev-btn" title="Previous">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#f3e9dd"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+      </button>
+      <button id="play-btn" class="play-btn" title="Play/Pause">
+        <svg id="play-icon" width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="pause-icon" width="16" height="16" viewBox="0 0 24 24" style="display:none;"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+      </button>
+      <button id="next-btn" title="Next">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#f3e9dd"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg>
+      </button>
+    </div>
+    <div class="seek-row">
+      <span id="cur-time">0:00</span>
+      <input type="range" id="seek-bar" min="0" max="100" value="0">
+      <span id="dur-time">0:00</span>
+    </div>
+  </div>
+
+  <div class="volume-wrap">
+    <svg width="17" height="17" viewBox="0 0 24 24" fill="#f3e9dd"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 00-2.5-4.03v8.06A4.5 4.5 0 0016.5 12z"/></svg>
+    <input type="range" id="volume-bar" min="0" max="100" value="70">
+  </div>
+</div>
+
+<audio id="audio-el"></audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>
