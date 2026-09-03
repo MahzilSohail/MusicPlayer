@@ -18,7 +18,7 @@ A small, responsive web-based music player called **Corner Booth**. The project 
 - Search tracks by title or artist
 - Filter tracks by genre
 - Play / pause tracks
-- Previous and ⏭️ next track controls
+- Previous and next track controls
 - Volume control
 - Seek through the currently playing track
 - Animated rotating disc while audio is playing
